@@ -1,0 +1,25 @@
+namespace DocumentNS;
+
+public abstract class Generation
+{
+    protected string title;
+    protected List<string> headers;
+    protected List<string> fields;
+
+    public Generation(int headersLength, int fieldsLength)
+    {
+         headers = new List<string>(headersLength);
+         fields = new List<string>(fieldsLength);
+    }
+
+    public void Start()
+    {
+        PrintTitle();
+        PrintHeaders();
+        PrintFields();
+    }
+
+    public abstract void PrintTitle();
+    public abstract void PrintHeaders();
+    public abstract void PrintFields();
+}
