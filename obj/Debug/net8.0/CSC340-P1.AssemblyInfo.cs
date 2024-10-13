@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSC340-P1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+477974c0b2654ccaad2f857b0397aeb3d8bda287")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+daddf3f950dfc7b9d0a396db12ab752b94e131e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSC340-P1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSC340-P1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
