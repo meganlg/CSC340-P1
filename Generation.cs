@@ -1,3 +1,5 @@
+using System.Security;
+
 namespace DocumentNS;
 
 public abstract class Generation
@@ -14,11 +16,17 @@ public abstract class Generation
 
     public void Start()
     {
+        SetTitle();
+        SetHeaders();
+        SetFields();
         PrintTitle();
         PrintHeaders();
         PrintFields();
     }
 
+    public abstract void SetTitle();
+    public abstract void SetHeaders();
+    public abstract void SetFields();
     public abstract void PrintTitle();
     public abstract void PrintHeaders();
     public abstract void PrintFields();
