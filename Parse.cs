@@ -1,9 +1,9 @@
 using System;
 namespace DocumentNS;
 
-public abstract class Parse 
+public abstract class Parse<T>
 {
-    public string filePath{ get; set };
+    required public string FilePath { get; set; }
     public abstract List<T> Data{ get; set; }
 
     public virtual void getFile()
@@ -14,20 +14,20 @@ public abstract class Parse
         while (valid is not true)
         {
             Console.Write("Enter the name of the data file: ");
-            fileName = Console.ReadLine();
+            // if user enters nothing, change to empty string instead of null
+            string? nullableString = Console.ReadLine();           
+            fileName = nullableString == null ? "" : nullableString;
             // path = Get directory?
-            if (fileName.EndsWith(".csv", StringComparison.CurrentCultureIgnoreCase))
-            {
-                valid = true;
-            }
-            else
+            valid = File.Exists(path);
+            if (!fileName.EndsWith(".csv", StringComparison.CurrentCultureIgnoreCase))
             {
                 Console.WriteLine("File type must be .csv");
+                valid = false;
             }
-            valid = File.Exists(path);
+            
         }
-        filePath = filePath;
+        FilePath = fileName;
     }
-    public abstract void parseData(string path) {}
+    public abstract void parseData(string path);
 
 }
