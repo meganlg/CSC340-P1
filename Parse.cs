@@ -5,6 +5,11 @@ public abstract class Parse<T>
 {
     required public string FilePath { get; set; }
     public abstract List<T> Data{ get; set; }
+    public sealed void parseCsvFile()
+    {
+        getFile();
+        parseData();
+    }
 
     public virtual void getFile()
     {
@@ -18,6 +23,8 @@ public abstract class Parse<T>
             string? nullableString = Console.ReadLine();           
             fileName = nullableString == null ? "" : nullableString;
             // path = Get directory?
+            // ^ Problem for me was that the file is not stored in the same location as the running program
+            //   I'm not sure how it runs on other computers, though
             valid = File.Exists(path);
             if (!fileName.EndsWith(".csv", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -28,6 +35,6 @@ public abstract class Parse<T>
         }
         FilePath = fileName;
     }
-    public abstract void parseData(string path);
+    public abstract void parseData();
 
 }
