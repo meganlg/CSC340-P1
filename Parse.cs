@@ -3,13 +3,14 @@ namespace DocumentNS;
 
 public abstract class Parse 
 {
-    abstract List<T> { get; set; }
+    public string filePath{ get; set };
+    public abstract List<T> Data{ get; set; }
 
-    public virtual string getFile()
+    public virtual void getFile()
     {
         bool valid = false;
-        string path = "";
         string fileName = "";
+        string path = "";
         while (valid is not true)
         {
             Console.Write("Enter the name of the data file: ");
@@ -25,8 +26,8 @@ public abstract class Parse
             }
             valid = File.Exists(path);
         }
-        return path;
+        filePath = filePath;
     }
-    public abstract void parseData(string path) { }
+    public abstract void parseData(string path) {}
 
 }
