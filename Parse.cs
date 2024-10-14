@@ -15,7 +15,7 @@ public abstract class Parse<T>
 {
     required public string FilePath { get; set; }
     public abstract List<T> Data{ get; set; }
-    public sealed void parseCsvFile()
+    public void parseCsvFile()
     {
         getFile();
         parseData();

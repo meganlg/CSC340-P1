@@ -9,6 +9,8 @@
 ***															      ***
 ********************************************************************/
 using System;
+using System.Globalization;
+using CsvHelper;
 namespace DocumentNS;
 
 public class SaleParse : Parse<Sale>
