@@ -11,6 +11,7 @@
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Drawing;
 using System.IO;
+using System.Globalization;
 namespace DocumentNS;
 
 public class EmployeeGen : Generation<Employee>
@@ -80,7 +81,7 @@ public class EmployeeGen : Generation<Employee>
 
             gfx.DrawString(employee.ID.ToString(), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
-            gfx.DrawString(employee.Pay.ToString().Insert(0, "$"), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
+            gfx.DrawString(employee.Pay.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
             gfx.DrawString(employee.Position, font, XBrushes.Black, new XRect(xOffset + 4 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 

@@ -11,6 +11,7 @@
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Drawing;
 using System.IO;
+using System.Globalization;
 namespace DocumentNS;
 
 public class InventoryGen : Generation<Inventory>
@@ -71,7 +72,7 @@ public class InventoryGen : Generation<Inventory>
 
             gfx.DrawString(inventoryItem.Quantity.ToString(), font, XBrushes.Black, new XRect(xOffset + 1 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
-            gfx.DrawString(inventoryItem.Price.ToString().Insert(0, "$"), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
+            gfx.DrawString(inventoryItem.Price.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
             gfx.DrawString(inventoryItem.Category, font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 

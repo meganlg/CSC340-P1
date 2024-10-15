@@ -11,6 +11,7 @@
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Drawing;
 using System.IO;
+using System.Globalization;
 namespace DocumentNS;
 
 public class SalesGen : Generation<Sale>
@@ -68,17 +69,13 @@ public class SalesGen : Generation<Sale>
             // Incorporate xOffset into the X position for each field
             gfx.DrawString(saleItem.Location, font, XBrushes.Black, new XRect(xOffset + 0 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
-            gfx.DrawString(saleItem.TargetSales.ToString().Insert(0, "$"), font, XBrushes.Black, new XRect(xOffset + 1 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
+            gfx.DrawString(saleItem.TargetSales.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 1 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
-            gfx.DrawString(saleItem.ActualSales.ToString().Insert(0, "$"), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
+            gfx.DrawString(saleItem.ActualSales.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
             string temp = saleItem.Difference.ToString().Substring(0, 1);
-            if(temp == "-") {
-                gfx.DrawString(saleItem.Difference.ToString().Insert(1, "$"), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
-            }
-            else{
-                gfx.DrawString(saleItem.Difference.ToString().Insert(0, " $"), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
-            }
+            gfx.DrawString(saleItem.Difference.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);      
+                  
             yOffset += lineWidth; //add line width to the vertical offset
         }
     }
