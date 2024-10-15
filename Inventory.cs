@@ -18,13 +18,5 @@ public class Inventory
 	public string Category { get; set; }
 	public double Weight { get; set; }
 
-	public Inventory(int id = 0, int quantity = 0, double price = 0.0, string category = "", double weight = 0.0)
-	{
-		ID = id;
-		Quantity = quantity;
-		Price = price;
-		Category = category;
-		Weight = weight;
-	}
 }
 

@@ -19,14 +19,5 @@ public class Employee
 	public string Position { get; set; }
 	public string PhoneNumber { get; set; }
 
-	public Employee(string firstName = "", string lastName = "", int id = 0, double pay = 0.0, string position = "", string phoneNumber = "")
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		ID = id;
-		Pay = pay;
-		Position = position;
-		PhoneNumber = phoneNumber;
-	}
 }
 
