@@ -74,7 +74,14 @@ public class SalesGen : Generation<Sale>
             gfx.DrawString(saleItem.ActualSales.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
             string temp = saleItem.Difference.ToString().Substring(0, 1);
-            gfx.DrawString(saleItem.Difference.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);      
+            if(temp == "-")
+            {
+                gfx.DrawString(saleItem.Difference.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Red, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);    
+            }  
+            else
+            {
+                gfx.DrawString(saleItem.Difference.ToString("C", CultureInfo.CurrentCulture), font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);    
+            }
                   
             yOffset += lineWidth; //add line width to the vertical offset
         }
