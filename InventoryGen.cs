@@ -12,7 +12,7 @@ namespace DocumentNS;
 
 public class InventoryGen : Generation
 {
-    public InventoryGen() : base(3,3)
+    public InventoryGen() : base("", 3,3)
     {
 
     }

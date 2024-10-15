@@ -9,10 +9,6 @@ C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\CSC340-P1
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\CSC340-P1.runtimeconfig.json
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\CSC340-P1.dll
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\CSC340-P1.pdb
-C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\PdfSharp.Charting.dll
-C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\PdfSharp.dll
-C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\de\PdfSharp.Charting.resources.dll
-C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\de\PdfSharp.resources.dll
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\obj\Debug\net8.0\CSC340-P1.csproj.Up2Date
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\obj\Debug\net8.0\CSC340-P1.dll
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\obj\Debug\net8.0\refint\CSC340-P1.dll
@@ -22,3 +18,9 @@ C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\obj\Debug\net8.0\ref\CSC34
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\PdfSharpCore.dll
+C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
+C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+C:\Users\justi\OneDrive\Desktop\project_2SA\CSC340-P1\bin\Debug\net8.0\de\PdfSharpCore.resources.dll

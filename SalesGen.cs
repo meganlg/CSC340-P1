@@ -12,7 +12,7 @@ namespace DocumentNS;
 
 public class SalesGen : Generation
 {
-    public SalesGen() : base(3,3)
+    public SalesGen() : base("", 3,3)
     {
 
     }

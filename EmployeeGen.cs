@@ -12,7 +12,7 @@ namespace DocumentNS;
 
 public class EmployeeGen : Generation
 {
-    public EmployeeGen() : base(3, 3) //temporary values
+    public EmployeeGen() : base("", 3, 3) //temporary values
     {
 
     }

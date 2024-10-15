@@ -10,8 +10,8 @@
 ********************************************************************/
 using System;
 using System.Text; // Required for encoding
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
+using PdfSharpCore.Pdf;
+using PdfSharpCore.Drawing;
 
 namespace PdfExample
 {
@@ -32,13 +32,13 @@ namespace PdfExample
             // Get an XGraphics object for drawing
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
-            // Set the font
+            // Set the font (You may need to provide your own font files if default system fonts aren't available)
             XFont fontTitle = new XFont("Verdana", 14, XFontStyle.Bold);
             XFont fontHeader = new XFont("Verdana", 12, XFontStyle.Bold);
             XFont fontBody = new XFont("Verdana", 10, XFontStyle.Regular);
 
             // Title
-            gfx.DrawString("Employee Details", fontTitle, XBrushes.Black,
+            gfx.DrawString("Employee Details", fontTitle, XBrushes.Yellow,
                 new XRect(0, 20, page.Width, page.Height),
                 XStringFormats.TopCenter);
 

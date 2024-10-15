@@ -18,10 +18,11 @@ public abstract class Generation
     protected List<string> headers;
     protected List<string> fields;
 
-    public Generation(int headersLength, int fieldsLength)
+    public Generation(string Title, int headersLength, int fieldsLength)
     {
-         headers = new List<string>(headersLength);
-         fields = new List<string>(fieldsLength);
+        this.title = Title;
+        headers = new List<string>(headersLength);
+        fields = new List<string>(fieldsLength);
     }
 
     public void Start()
