@@ -21,10 +21,10 @@ public class InventoryGen : Generation<Inventory>
     {
         this.inventoryData = inventoryData;
     }
-    public override void SetTitle()
-    {
-        title = "Inventory Report";
-    }
+    // public override void SetTitle()
+    // {
+    //     title = "Inventory Report";
+    // }
     public override void SetHeaders()
     {
         headers.Add("Product ID");

@@ -21,10 +21,10 @@ public class SalesGen : Generation<Sale>
     {
         this.saleData = saleData;
     }
-        public override void SetTitle()
-    {
-        title = "Sales Report";
-    }
+    // public override void SetTitle()
+    // {
+    //     title = "Sales Report";
+    // }
     public override void SetHeaders()
     {
         headers.Add("Location");

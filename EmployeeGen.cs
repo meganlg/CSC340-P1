@@ -22,10 +22,10 @@ public class EmployeeGen : Generation<Employee>
         this.employeeData = employeeData;
     }
 
-    public override void SetTitle()
-    {
-        title = "Employee Report";
-    }
+    // public override void SetTitle()
+    // {
+    //     title = "Employee Report";
+    // }
 
     public override void SetHeaders()
     {

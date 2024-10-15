@@ -38,7 +38,6 @@ public abstract class Generation<T>
     public void Start()
     {
         string pdfFileName = $"{title.Replace(" ", "_")}.pdf";
-        SetTitle();
         SetHeaders();
         SetFields();
         PrintTitle();
@@ -57,7 +56,6 @@ protected void SavePdf(string fileName)
     Console.WriteLine($"PDF saved as {fileName}");
 }
 
-    public abstract void SetTitle();
     public abstract void SetHeaders();
     public abstract void SetFields();
     public abstract void PrintTitle();
