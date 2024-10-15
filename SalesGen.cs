@@ -16,28 +16,15 @@ namespace DocumentNS;
 
 public class SalesGen : Generation<Sale>
 {
-    private List<Sale> saleData;
-    public SalesGen(List<Sale> saleData) : base("Sales Report", 4, saleData.Count)
+    public SalesGen(List<Sale> saleData) : base("Sales Report", 4, saleData)
     {
-        this.saleData = saleData;
     }
-    // public override void SetTitle()
-    // {
-    //     title = "Sales Report";
-    // }
     public override void SetHeaders()
     {
         headers.Add("Location");
         headers.Add("Target Sales");
         headers.Add("Actual Sales");
         headers.Add("Difference");
-    }
-    public override void SetFields()
-    {
-        foreach (var sale in saleData)
-        {
-            fields.Add(sale);
-        }
     }
     public override void PrintTitle()
     {

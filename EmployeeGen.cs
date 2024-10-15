@@ -16,16 +16,9 @@ namespace DocumentNS;
 
 public class EmployeeGen : Generation<Employee>
 {
-    private List<Employee> employeeData;
-    public EmployeeGen(List<Employee> employeeData) : base("Employee Report", 6, employeeData.Count)
+    public EmployeeGen(List<Employee> employeeData) : base("Employee Report", 6, employeeData)
     {
-        this.employeeData = employeeData;
     }
-
-    // public override void SetTitle()
-    // {
-    //     title = "Employee Report";
-    // }
 
     public override void SetHeaders()
     {
@@ -36,15 +29,6 @@ public class EmployeeGen : Generation<Employee>
         headers.Add("Position");
         headers.Add("Phone Number");
     }
-
-    public override void SetFields()
-    {
-        foreach (var employee in employeeData)
-        {
-            fields.Add(employee);
-        }
-    }
-
     public override void PrintTitle()
     {
         XFont font = new XFont("Verdana", 20, XFontStyle.Bold); //sets the font beforehand 

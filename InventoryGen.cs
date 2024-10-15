@@ -16,15 +16,10 @@ namespace DocumentNS;
 
 public class InventoryGen : Generation<Inventory>
 {
-    private List<Inventory> inventoryData;
-    public InventoryGen(List<Inventory> inventoryData) : base("Inventory Report", 5, inventoryData.Count)
+    public InventoryGen(List<Inventory> inventoryData) : base("Inventory Report", 5, inventoryData)
     {
-        this.inventoryData = inventoryData;
     }
-    // public override void SetTitle()
-    // {
-    //     title = "Inventory Report";
-    // }
+
     public override void SetHeaders()
     {
         headers.Add("Product ID");
@@ -32,13 +27,6 @@ public class InventoryGen : Generation<Inventory>
         headers.Add("Price Per");
         headers.Add("Category");
         headers.Add("Weight (lbs)");
-    }
-    public override void SetFields()
-    {
-        foreach (var inventory in inventoryData)
-        {
-            fields.Add(inventory);
-        }
     }
     public override void PrintTitle()
     {

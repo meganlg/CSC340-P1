@@ -24,11 +24,11 @@ public abstract class Generation<T>
     protected PdfPage pdfPage;
     protected XGraphics gfx;
 
-    public Generation(string Title, int headersLength, int fieldsLength)
+    public Generation(string Title, int headersLength, List<T> fields)
     {
         this.title = Title;
         headers = new List<string>(headersLength);
-        fields = new List<T>(fieldsLength);
+        this.fields = fields;
         pdfDocument = new PdfDocument();
         pdfDocument.Info.Title = title;
         pdfPage = pdfDocument.AddPage();
@@ -37,27 +37,25 @@ public abstract class Generation<T>
 
     public void Start()
     {
-        string pdfFileName = $"{title.Replace(" ", "_")}.pdf";
         SetHeaders();
-        SetFields();
         PrintTitle();
         PrintHeaders();
         PrintFields();
-        SavePdf(pdfFileName);
+        SavePdf();
     }
 
-protected void SavePdf(string fileName)
-{
-    using (var stream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+    protected void SavePdf()
     {
-        pdfDocument.Save(stream);
-    }
+        string pdfFileName = $"{title.Replace(" ", "_")}.pdf";
+        using (var stream = new FileStream(pdfFileName, FileMode.Create, FileAccess.Write))
+        {
+            pdfDocument.Save(stream);
+        }
 
-    Console.WriteLine($"PDF saved as {fileName}");
-}
+        Console.WriteLine($"PDF saved as {pdfFileName}");
+    }
 
     public abstract void SetHeaders();
-    public abstract void SetFields();
     public abstract void PrintTitle();
     public abstract void PrintHeaders();
     public abstract void PrintFields();
