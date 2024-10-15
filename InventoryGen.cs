@@ -30,7 +30,7 @@ public class InventoryGen : Generation<Inventory>
         headers.Add("Quantity");
         headers.Add("Price Per");
         headers.Add("Category");
-        headers.Add("Weight");
+        headers.Add("Weight (lbs)");
     }
     public override void SetFields()
     {
@@ -71,7 +71,7 @@ public class InventoryGen : Generation<Inventory>
 
             gfx.DrawString(inventoryItem.Quantity.ToString(), font, XBrushes.Black, new XRect(xOffset + 1 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
-            gfx.DrawString(inventoryItem.Price.ToString(), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
+            gfx.DrawString(inventoryItem.Price.ToString().Insert(0, "$"), font, XBrushes.Black, new XRect(xOffset + 2 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 
             gfx.DrawString(inventoryItem.Category, font, XBrushes.Black, new XRect(xOffset + 3 * widthBetweenColumns, yOffset, widthBetweenColumns, lineWidth), XStringFormats.TopLeft);
 

@@ -84,3 +84,34 @@ List<Inventory> inventoryList = new List<Inventory>
 };
 InventoryGen inventoryGen = new InventoryGen(inventoryList);
 inventoryGen.Start();
+
+List<Sale> saleList = new List<Sale>
+{
+    new Sale("New York", 95795, 84118, -11677),
+    new Sale("Los Angeles", 130860, 165773, 34913),
+    new Sale("Chicago", 138158, 138810, 652),
+    new Sale("Houston", 101284, 76899, -24385),
+    new Sale("Phoenix", 116265, 151886, 35621),
+    new Sale("Dallas", 136850, 116267, -20583),
+    new Sale("San Antonio", 142194, 121551, -20643),
+    new Sale("San Diego", 136962, 160680, 23718),
+    new Sale("San Francisco", 141023, 131394, -9629),
+    new Sale("Seattle", 136685, 123556, -13129),
+    new Sale("Denver", 140769, 128890, -11879),
+    new Sale("Boston", 112433, 146606, 34173),
+    new Sale("Las Vegas", 110311, 120740, 10429),
+    new Sale("Miami", 127819, 99502, -28317),
+    new Sale("Atlanta", 124188, 101777, -22411),
+    new Sale("Washington", 97568, 85627, -11941),
+    new Sale("Detroit", 114769, 88792, -25977),
+    new Sale("Philadelphia", 158693, 153323, -5370),
+    new Sale("Minneapolis", 106396, 138021, 31625),
+    new Sale("Orlando", 132480, 108433, -24047),
+    new Sale("Charlotte", 135658, 148001, 12343),
+    new Sale("Portland", 133942, 111016, -22926),
+    new Sale("Austin", 138431, 138897, 466),
+    new Sale("Jacksonville", 127747, 122612, -5135),
+    new Sale("Indianapolis", 130189, 166193, 36004)
+};
+SalesGen saleGen = new SalesGen(saleList);
+saleGen.Start();
