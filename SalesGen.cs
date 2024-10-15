@@ -10,7 +10,7 @@
 ********************************************************************/
 namespace DocumentNS;
 
-public class SalesGen : Generation
+public class SalesGen : Generation<Sale>
 {
     public SalesGen() : base("", 3,3)
     {

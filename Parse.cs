@@ -32,7 +32,8 @@ public abstract class Parse<T>
             // if user enters nothing, change to empty string instead of null
             string? nullableString = Console.ReadLine();           
             fileName = nullableString == null ? "" : nullableString;
-            // path = Get directory?
+            path = fileName; //temporary
+            //path = Get directory?
             // ^ Problem for me was that the file is not stored in the same location as the running program
             //   I'm not sure how it runs on other computers, though
             valid = File.Exists(path);

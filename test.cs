@@ -8,81 +8,79 @@
 *** DESCRIPTION :											      ***
 ***															      ***
 ********************************************************************/
-using System;
-using System.Text; // Required for encoding
-using PdfSharpCore.Pdf;
-using PdfSharpCore.Drawing;
+using DocumentNS;
 
-namespace PdfExample
+
+// List<Employee> employeeList = new List<Employee>();
+
+// EmployeeParse employeeParser = new EmployeeParse(employeeList)
+// {
+//     FilePath = "Employee.csv"
+// };
+
+// employeeParser.parseCsvFile();
+// employeeList = employeeParser.Data;
+
+List<Employee> employeeList = new List<Employee>
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Fix: Register the encoding provider for encodings like Windows-1252
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+    new Employee("Bob", "Johnson", 000, 15.6, "Ops Manager", "555-012-3456"),
+    new Employee("John", "Smith", 001, 20.5, "Manager", "555-045-6789"),
+    new Employee("Emily", "Johnson", 002, 18.75, "Developer", "555-078-9123"),
+    new Employee("Michael", "Brown", 003, 22.0, "Designer", "555-111-2345"),
+    new Employee("Sarah", "Davis", 004, 19.0, "Analyst", "555-131-5678"),
+    new Employee("David", "Wilson", 005, 25.0, "Engineer", "555-151-8901"),
+    new Employee("Jessica", "Taylor", 006, 17.5, "Marketer", "555-171-2345"),
+    new Employee("Daniel", "Martinez", 007, 21.0, "Sales Rep", "555-192-6789"),
+    new Employee("Ashley", "Anderson", 008, 20.0, "HR Officer", "555-212-3456"),
+    new Employee("Robert", "Thomas", 009, 24.0, "Proj Lead", "555-232-6789"),
+    new Employee("Lauren", "Jackson", 010, 19.5, "Researcher", "555-252-9012"),
+    new Employee("James", "White", 011, 18.0, "Help Desk", "555-272-3456"),
+    new Employee("Olivia", "Harris", 012, 22.5, "Accountant", "555-292-6789"),
+    new Employee("William", "Martin", 013, 16.75, "IT Support", "555-303-7890"),
+    new Employee("Sophia", "Thompson", 014, 23.0, "Ops Lead", "555-313-4567"),
+    new Employee("Benjamin", "Garcia", 015, 20.25, "Data Spec", "555-323-8901"),
+    new Employee("Mia", "Martinez", 016, 19.25, "Admin Asst", "555-333-4567"),
+    new Employee("Ethan", "Robinson", 017, 21.5, "Web Dev", "555-343-6789"),
+    new Employee("Isabella", "Clark", 018, 18.9, "Copywriter", "555-353-7890"),
+    new Employee("Alexander", "Rodriguez", 019, 22.75, "Sys Admin", "555-363-8901"),
+    new Employee("Charlotte", "Lewis", 020, 20.0, "QA Tester", "555-373-4567"),
+    new Employee("Noah", "Lee", 021, 19.8, "Graphics", "555-383-6789"),
+    new Employee("Amelia", "Walker", 022, 23.5, "Test Engr", "555-393-8901"),
+    new Employee("Jacob", "Hall", 023, 21.25, "Prod Lead", "555-404-5678"),
+    new Employee("Evelyn", "Allen", 024, 20.75, "Media Lead", "555-414-6789"),
+    new Employee("Lucas", "Young", 025, 17.0, "Lab Asst", "555-4141-0830")
+};
 
-            // Create a new PDF document
-            PdfDocument document = new PdfDocument();
-            document.Info.Title = "Employee Details";
+EmployeeGen employeeGen = new EmployeeGen(employeeList);
+employeeGen.Start();
 
-            // Create an empty page
-            PdfPage page = document.AddPage();
-
-            // Get an XGraphics object for drawing
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-
-            // Set the font (You may need to provide your own font files if default system fonts aren't available)
-            XFont fontTitle = new XFont("Verdana", 14, XFontStyle.Bold);
-            XFont fontHeader = new XFont("Verdana", 12, XFontStyle.Bold);
-            XFont fontBody = new XFont("Verdana", 10, XFontStyle.Regular);
-
-            // Title
-            gfx.DrawString("Employee Details", fontTitle, XBrushes.Yellow,
-                new XRect(0, 20, page.Width, page.Height),
-                XStringFormats.TopCenter);
-
-            // Table headers
-            double yOffset = 60; // Starting Y position for the table
-            double lineHeight = 20; // Space between rows
-            double columnWidth = 100;
-
-            gfx.DrawString("First Name", fontHeader, XBrushes.Black, new XRect(20, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);
-            gfx.DrawString("Last Name", fontHeader, XBrushes.Black, new XRect(120, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);
-            gfx.DrawString("Employee ID", fontHeader, XBrushes.Black, new XRect(220, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);
-            gfx.DrawString("Hourly Pay", fontHeader, XBrushes.Black, new XRect(320, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);
-            gfx.DrawString("Position", fontHeader, XBrushes.Black, new XRect(420, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);
-            gfx.DrawString("Phone Number", fontHeader, XBrushes.Black, new XRect(520, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);
-
-            // Example employee data (can be loaded from a database, file, or another source)
-            string[,] employees = new string[,]
-            {
-                {"John", "Johnson", "E000", "15.6", "Customer Service", "555-012-3456"},
-                {"Jane", "Smith", "E001", "20.5", "Manager", "555-045-6789"},
-                {"Robert", "Johnson", "E002", "18.75", "Developer", "555-078-9123"},
-                {"James", "Brown", "E003", "22", "Designer", "555-111-2345"},
-                {"William", "Davis", "E004", "19", "Analyst", "555-131-5678"},
-                // Add the rest of the employees here
-            };
-
-            // Draw employee data
-            for (int i = 0; i < employees.GetLength(0); i++)
-            {
-                yOffset += lineHeight;
-                gfx.DrawString(employees[i, 0], fontBody, XBrushes.Black, new XRect(20, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft);  // First Name
-                gfx.DrawString(employees[i, 1], fontBody, XBrushes.Black, new XRect(120, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft); // Last Name
-                gfx.DrawString(employees[i, 2], fontBody, XBrushes.Black, new XRect(220, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft); // Employee ID
-                gfx.DrawString(employees[i, 3], fontBody, XBrushes.Black, new XRect(320, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft); // Hourly Pay
-                gfx.DrawString(employees[i, 4], fontBody, XBrushes.Black, new XRect(420, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft); // Position
-                gfx.DrawString(employees[i, 5], fontBody, XBrushes.Black, new XRect(520, yOffset, columnWidth, lineHeight), XStringFormats.TopLeft); // Phone Number
-            }
-
-            // Save the document
-            const string filename = "EmployeeDetails.pdf";
-            document.Save(filename);
-
-            // Output confirmation message
-            Console.WriteLine($"PDF saved at {filename}");
-        }
-    }
-}
+List<Inventory> inventoryList = new List<Inventory>
+{
+    new Inventory(1000047, 50, 25.99, "Books", 5.34),
+    new Inventory(1142789, 29, 45.32, "Garden & Outdoor", 1.89),
+    new Inventory(1097234, 47, 16.84, "Health & Household", 12.45),
+    new Inventory(1204567, 12, 3.79, "Toys & Games", 3.67),
+    new Inventory(1127890, 63, 29.58, "Books", 0.75),
+    new Inventory(1034812, 18, 61.27, "Beauty", 9.12),
+    new Inventory(1418965, 50, 12.5, "Automotive", 14.88),
+    new Inventory(1259843, 36, 8.14, "Computers", 2.56),
+    new Inventory(1102345, 71, 47.95, "Garden & Outdoor", 6.44),
+    new Inventory(1301567, 22, 24.63, "Video Games", 11.73),
+    new Inventory(1468234, 58, 33.11, "Watches", 7.29),
+    new Inventory(1198765, 11, 56.78, "Sports & Outdoor", 0.5),
+    new Inventory(1364890, 33, 7.02, "Musical Instruments", 4.81),
+    new Inventory(1087432, 65, 39.87, "Garden & Outdoor", 10.05),
+    new Inventory(1250678, 45, 1.9, "Watches", 8.23),
+    new Inventory(1149876, 27, 66.24, "Computers", 13.67),
+    new Inventory(1301239, 39, 14.75, "Movies & TV", 0.3),
+    new Inventory(1416543, 70, 21.48, "Sports & Outdoors", 15.0),
+    new Inventory(1075910, 15, 54.62, "Baby Products", 7.88),
+    new Inventory(1235678, 55, 4.36, "Sports & Outdoors", 2.1),
+    new Inventory(1482123, 31, 19.99, "Tools", 3.95),
+    new Inventory(1108964, 44, 30.12, "Garden & Outdoor", 1.5),
+    new Inventory(1399888, 68, 62.5, "Grocery", 6.78),
+    new Inventory(1050321, 23, 11.11, "Video Games", 12.0),
+    new Inventory(1456789, 60, 35.67, "Clothing", 8.66)
+};
+InventoryGen inventoryGen = new InventoryGen(inventoryList);
+inventoryGen.Start();
