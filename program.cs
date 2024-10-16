@@ -5,7 +5,8 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
+*** DESCRIPTION : Demonstrates the project using randomly 		  ***
+***               generated test csv files.                       ***
 ***															      ***
 ********************************************************************/
 using DocumentNS;
