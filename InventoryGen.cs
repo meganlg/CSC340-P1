@@ -5,8 +5,9 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
-***															      ***
+*** DESCRIPTION : The InventoryGen class inherits from the         ***
+***				  Generation class and implements SetHeaders,     ***
+***               PrintTitle, PrintHeaders, and PrintFields.      ***
 ********************************************************************/
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Drawing;
