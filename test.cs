@@ -16,7 +16,7 @@ EmployeeParse employeeParse = new EmployeeParse(employeeList)
 {
     FilePath = "Employee.csv"
 };
-employeeParse.parseCsvFile();
+employeeParse.parseCsvFile("Employee.csv");
 
 EmployeeGen employeeGen = new EmployeeGen(employeeList);
 employeeGen.Start();
@@ -26,7 +26,7 @@ List<Inventory> inventoryList = new List<Inventory>();
 InventoryParse inventoryParse = new InventoryParse(inventoryList){
     FilePath = "Inventory.csv"
 };
-inventoryParse.parseCsvFile();
+inventoryParse.parseCsvFile("Inventory.csv");
 
 InventoryGen inventoryGen = new InventoryGen(inventoryList);
 inventoryGen.Start();
@@ -34,9 +34,9 @@ inventoryGen.Start();
 
 List<Sale> saleList = new List<Sale>();
 SaleParse saleParse= new SaleParse(saleList){
-    FilePath = "Sale.csv"
+    FilePath = "Sales.csv"
 };
-saleParse.parseCsvFile();
+saleParse.parseCsvFile("Sales.csv");
 
 SalesGen saleGen = new SalesGen(saleList);
 saleGen.Start();

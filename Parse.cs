@@ -15,23 +15,18 @@ public abstract class Parse<T>
 {
     required public string FilePath { get; set; }
     public abstract List<T> Data{ get; set; }
-    public void parseCsvFile()
+    public void parseCsvFile(string? fileName)
     {
-        getFile();
+        getFile(fileName);
         parseData();
     }
 
-    public virtual void getFile()
+    protected virtual void getFile(string? fileName)
     {
         bool valid = false;
-        string fileName = "";
         string path = "";
-        while (valid is not true)
-        {
-            Console.Write("Enter the name of the data file: ");
             // if user enters nothing, change to empty string instead of null
-            string? nullableString = Console.ReadLine();           
-            fileName = nullableString == null ? "" : nullableString;
+            fileName ??= "";
             path = fileName; //temporary
             //path = Get directory?
             // ^ Problem for me was that the file is not stored in the same location as the running program
@@ -42,10 +37,8 @@ public abstract class Parse<T>
                 Console.WriteLine("File type must be .csv");
                 valid = false;
             }
-            
-        }
         FilePath = fileName;
     }
-    public abstract void parseData();
+    protected abstract void parseData();
 
 }

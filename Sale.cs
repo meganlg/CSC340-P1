@@ -12,7 +12,7 @@ using System;
 namespace DocumentNS;
 public class Sale
 {
-	public string Location { get; set; }
+	public string? Location { get; set; }
 	public double TargetSales { get; set; }
 	public double ActualSales { get; set; }
 	public double Difference { get; set; }

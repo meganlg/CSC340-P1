@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justi\\OneDrive\\Desktop\\project_2SA\\CSC340-P1\\CSC340-P1.csproj": {}
+    "C:\\Users\\Lilli\\Documents\\School\\SE_340\\CSC340-P1\\CSC340-P1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justi\\OneDrive\\Desktop\\project_2SA\\CSC340-P1\\CSC340-P1.csproj": {
+    "C:\\Users\\Lilli\\Documents\\School\\SE_340\\CSC340-P1\\CSC340-P1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justi\\OneDrive\\Desktop\\project_2SA\\CSC340-P1\\CSC340-P1.csproj",
+        "projectUniqueName": "C:\\Users\\Lilli\\Documents\\School\\SE_340\\CSC340-P1\\CSC340-P1.csproj",
         "projectName": "CSC340-P1",
-        "projectPath": "C:\\Users\\justi\\OneDrive\\Desktop\\project_2SA\\CSC340-P1\\CSC340-P1.csproj",
-        "packagesPath": "C:\\Users\\justi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justi\\OneDrive\\Desktop\\project_2SA\\CSC340-P1\\obj\\",
+        "projectPath": "C:\\Users\\Lilli\\Documents\\School\\SE_340\\CSC340-P1\\CSC340-P1.csproj",
+        "packagesPath": "C:\\Users\\Lilli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lilli\\Documents\\School\\SE_340\\CSC340-P1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\justi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lilli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

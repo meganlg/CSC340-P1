@@ -3,7 +3,7 @@ using System.Globalization;
 using CsvHelper;
 
 class ParseExample{
-
+/*
     static void parseTest(string passinfilepath)
     {
         List<Inventory> inventoryList = new List<Inventory>();
@@ -20,5 +20,6 @@ class ParseExample{
         }
 
     }
+    */
 }
     

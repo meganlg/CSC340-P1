@@ -21,7 +21,7 @@ public class InventoryParse : Parse<Inventory>
         Data = data;
     }
 
-    public override void parseData() {
+    protected override void parseData() {
         using (var reader = new StreamReader(FilePath))
         {
         // try{

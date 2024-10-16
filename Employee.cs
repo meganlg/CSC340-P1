@@ -12,12 +12,12 @@ using System;
 namespace DocumentNS;
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
+	public string? FirstName { get; set; }
+	public string? LastName { get; set; }
 	public int ID { get; set; }
 	public double Pay { get; set; }
-	public string Position { get; set; }
-	public string PhoneNumber { get; set; }
+	public string? Position { get; set; }
+	public string? PhoneNumber { get; set; }
 
 }
 
