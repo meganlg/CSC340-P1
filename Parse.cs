@@ -5,7 +5,13 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
+*** DESCRIPTION : Parse is an abstract class that provides the 	  ***
+***               needed components for extracting and converting ***
+***               csv formatted data into class-based data types. ***
+***               A default implementation of getting a file name ***
+***               is provided. Child classes must provide         ***
+***               implementation for parsing the csv data and the ***
+***               datatype to convert to.                         ***
 ***															      ***
 ********************************************************************/
 using System;
@@ -15,12 +21,39 @@ public abstract class Parse<T>
 {
     required public string FilePath { get; set; }
     public abstract List<T> Data{ get; set; }
+
+    /********************************************************************
+    *** METHOD parseCsvFile                                           ***
+    *********************************************************************
+    *** DESCRIPTION : Calls the csv parsing algorithm in order        ***
+    ***               (template method)                               ***
+    *** INPUT ARGS : fileName                                         ***
+    *** OUTPUT ARGS : None                                            ***
+    *** IN/OUT ARGS : FilePath, Data                                  ***
+    *** RETURN : void                                                 ***
+    ********************************************************************/
     public void parseCsvFile(string? fileName)
     {
         getFile(fileName);
-        parseData();
+        if(FilePath != "")
+        {
+            parseData();
+        }
     }
 
+    /********************************************************************
+    *** METHOD getFile                                                ***
+    *********************************************************************
+    *** DESCRIPTION : Sets the FileName property to the passed string ***
+    ***               argument or "" if null; ensures the file is     ***
+    ***               valid by checking that it exists and is of the  ***
+    ***               csv file type.                                  ***
+    ***               (template method)                               ***
+    *** INPUT ARGS : fileName                                         ***
+    *** OUTPUT ARGS : None                                            ***
+    *** IN/OUT ARGS : FilePath                                        ***
+    *** RETURN : void                                                 ***
+    ********************************************************************/
     protected virtual void getFile(string? fileName)
     {
         bool valid = false;
@@ -28,9 +61,6 @@ public abstract class Parse<T>
             // if user enters nothing, change to empty string instead of null
             fileName ??= "";
             path = fileName; //temporary
-            //path = Get directory?
-            // ^ Problem for me was that the file is not stored in the same location as the running program
-            //   I'm not sure how it runs on other computers, though
             valid = File.Exists(path);
             if (!fileName.EndsWith(".csv", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -39,6 +69,6 @@ public abstract class Parse<T>
             }
         FilePath = fileName;
     }
-    protected abstract void parseData();
 
+    protected abstract void parseData();
 }

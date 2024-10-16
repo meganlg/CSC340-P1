@@ -5,7 +5,11 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
+*** DESCRIPTION : EmployeeParse is a concrete implementation of	  ***
+***               the Parse class. It provides the required       ***
+***               implementation for extracting csv formatted     ***
+***               employee data and converting it into a list of  ***
+***               the respective data type.                       ***
 ***															      ***
 ********************************************************************/
 using System;
@@ -18,42 +22,52 @@ public class EmployeeParse : Parse<Employee>
 {
     public override List<Employee> Data { get; set; } = new List<Employee>();
 
+    /********************************************************************
+    *** METHOD EmployeeParse (constructor)                            ***
+    *********************************************************************
+    *** DESCRIPTION : Sets the Data property equal to a pre-existing  ***
+    ***               list                                            ***
+    *** INPUT ARGS : data                                             ***
+    *** OUTPUT ARGS : None                                            ***
+    *** IN/OUT ARGS : Data                                            ***
+    *** RETURN : None                                                 ***
+    ********************************************************************/
     public EmployeeParse(List<Employee> data) {
         Data = data;
     }
 
+    /********************************************************************
+    *** METHOD parseData                                              ***
+    *********************************************************************
+    *** DESCRIPTION : Opens the file associated with the FilePath     ***
+    ***               property and extracts each line of data,        ***
+    ***               converting each line into its respective data   ***
+    ***               type counterpart; all entries are added to a    ***
+    ***               standard, strongly-typed list                   ***                            
+    ***               (template method)                               ***
+    *** INPUT ARGS : filePath                                         ***
+    *** OUTPUT ARGS : None                                            ***
+    *** IN/OUT ARGS : Data                                            ***
+    *** RETURN : void                                                 ***
+    ********************************************************************/
     protected override void parseData() {
         using (var reader = new StreamReader(FilePath))
         {
-        // ERROR HANDLING
-        // Disabled temporarily for debugging
-        // try
-        // {
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            try
             {
-                var records = csv.GetRecords<Employee>();
-                foreach (var record in records)
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    Data.Add(record);
+                    var records = csv.GetRecords<Employee>();
+                    foreach (var record in records)
+                    {
+                        Data.Add(record);
+                    }
                 }
             }
-        /*}
-        catch (CsvHelper.HeaderValidationException)
-        {
-            Console.WriteLine("File must contain the following headers: FirstName, LastName, ID, Pay, Position, PhoneNumber");
-        }*/
+            catch (CsvHelper.HeaderValidationException)
+            {
+                Console.WriteLine("File must contain the following headers: FirstName, LastName, ID, Pay, Position, PhoneNumber");
+            }
         }
-        /* For testing purposes 
-         * Remove when done
-        foreach (var employee in Data)
-        {
-            Console.WriteLine($"NAME: {employee.FirstName} {employee.LastName}");
-            Console.WriteLine($"ID: {employee.ID}");
-            Console.WriteLine($"POSITION: {employee.Position}");
-            Console.WriteLine($"SALARY: {employee.Pay}");
-            Console.WriteLine($"CONTACT: {employee.PhoneNumber}");
-            Console.WriteLine();
-        }
-        */
     }
 }
