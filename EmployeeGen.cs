@@ -5,8 +5,9 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
-***															      ***
+*** DESCRIPTION : The EmployeeGen class inherits from the         ***
+***				  Generation class and implements SetHeaders,     ***
+***               PrintTitle, PrintHeaders, and PrintFields.      ***
 ********************************************************************/
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Drawing;
@@ -16,10 +17,28 @@ namespace DocumentNS;
 
 public class EmployeeGen : Generation<Employee>
 {
+    /********************************************************************
+    *** METHOD EmployeeGen (constructor)                              ***
+    *********************************************************************
+    *** DESCRIPTION : sends the title, size, and object to the base class
+    *** INPUT ARGS : List<Employee> employeeData                      ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :                                                      ***
+    ********************************************************************/
     public EmployeeGen(List<Employee> employeeData) : base("Employee Report", 6, employeeData)
     {
     }
 
+    /********************************************************************
+    *** METHOD SetHeaders                                             ***
+    *********************************************************************
+    *** DESCRIPTION : Adds the headers to the list                    ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :    void                                              ***
+    ********************************************************************/
     public override void SetHeaders()
     {
         headers.Add("First Name");
@@ -29,12 +48,31 @@ public class EmployeeGen : Generation<Employee>
         headers.Add("Position");
         headers.Add("Phone Number");
     }
+
+    /********************************************************************
+    *** METHOD PrintTitle                                             ***
+    *********************************************************************
+    *** DESCRIPTION : prints the title to the pdf                     ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :       void                                           ***
+    ********************************************************************/
     public override void PrintTitle()
     {
         XFont font = new XFont("Verdana", 20, XFontStyle.Bold); //sets the font beforehand 
         gfx.DrawString(title, font, XBrushes.DarkSlateGray, new XRect(0, 50, pdfPage.Width, pdfPage.Height), XStringFormats.TopCenter);
     }
 
+    /********************************************************************
+    *** METHOD PrintHeaders                                           ***
+    *********************************************************************
+    *** DESCRIPTION : Prints the headers to the pdf with an even spacing
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :    void                                              ***
+    ********************************************************************/
     public override void PrintHeaders()
     {
         XFont font = new XFont("Verdana", 10, XFontStyle.Bold); //set the font beforehand
@@ -48,6 +86,15 @@ public class EmployeeGen : Generation<Employee>
         }
     }
 
+    /********************************************************************
+    *** METHOD PrintFields                                            ***
+    *********************************************************************
+    *** DESCRIPTION : prints each row of fields to the pdf            ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :      void                                            ***
+    ********************************************************************/
     public override void PrintFields()
     {
         XFont font = new XFont("Verdana", 10, XFontStyle.Regular);

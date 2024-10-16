@@ -17,10 +17,28 @@ namespace DocumentNS;
 
 public class InventoryGen : Generation<Inventory>
 {
+    /********************************************************************
+    *** METHOD InventoryGen (constructor)                              ***
+    *********************************************************************
+    *** DESCRIPTION : sends the title, size, and object to the base class
+    *** INPUT ARGS : List<Inventory> inventoryData                    ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :                                                      ***
+    ********************************************************************/
     public InventoryGen(List<Inventory> inventoryData) : base("Inventory Report", 5, inventoryData)
     {
     }
 
+    /********************************************************************
+    *** METHOD SetHeaders                                             ***
+    *********************************************************************
+    *** DESCRIPTION : Adds the headers to the list                    ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :    void                                              ***
+    ********************************************************************/
     public override void SetHeaders()
     {
         headers.Add("Product ID");
@@ -29,11 +47,30 @@ public class InventoryGen : Generation<Inventory>
         headers.Add("Category");
         headers.Add("Weight (lbs)");
     }
+
+     /********************************************************************
+    *** METHOD PrintTitle                                             ***
+    *********************************************************************
+    *** DESCRIPTION : prints the title to the pdf                     ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :       void                                           ***
+    ********************************************************************/
     public override void PrintTitle()
     {
         XFont font = new XFont("Verdana", 20, XFontStyle.Bold); //sets the font beforehand 
         gfx.DrawString(title, font, XBrushes.DarkRed, new XRect(0, 50, pdfPage.Width, pdfPage.Height), XStringFormats.TopCenter);
     }
+    /********************************************************************
+    *** METHOD PrintHeaders                                           ***
+    *********************************************************************
+    *** DESCRIPTION : Prints the headers to the pdf with an even spacing
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :    void                                              ***
+    ********************************************************************/
     public override void PrintHeaders()
     {
         XFont font = new XFont("Verdana", 10, XFontStyle.Bold); //set the font beforehand
@@ -46,6 +83,16 @@ public class InventoryGen : Generation<Inventory>
             gfx.DrawString(headers[i], font, XBrushes.Black, new XRect(xOffset + i * widthBetweenColumns, yOffset, widthBetweenColumns, 20), XStringFormats.TopLeft); 
         }
     }
+    
+    /********************************************************************
+    *** METHOD PrintFields                                            ***
+    *********************************************************************
+    *** DESCRIPTION : prints each row of fields to the pdf            ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :      void                                            ***
+    ********************************************************************/
     public override void PrintFields()
     {
         XFont font = new XFont("Verdana", 10, XFontStyle.Regular);

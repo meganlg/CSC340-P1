@@ -5,8 +5,8 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
-***															      ***
+*** DESCRIPTION : Generation is an abstract class of type <T>     ***
+***														      ***
 ********************************************************************/
 using System.Security;
 using PdfSharpCore.Pdf;
@@ -24,6 +24,17 @@ public abstract class Generation<T>
     protected PdfPage pdfPage;
     protected XGraphics gfx;
 
+    /********************************************************************
+    *** METHOD Generation                                             ***
+    *********************************************************************
+    *** DESCRIPTION :  sets the title, creates the list of headers,   ***
+    ***                sets the fields, creates a new PDF, sets the   ***
+    ***                PDF title, and sets gfx                        ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :                                                      ***
+    ********************************************************************/
     public Generation(string Title, int headersLength, List<T> fields)
     {
         this.title = Title;
@@ -35,6 +46,15 @@ public abstract class Generation<T>
         gfx = XGraphics.FromPdfPage(pdfPage);
     }
 
+    /********************************************************************
+    *** METHOD Start                                                  ***
+    *********************************************************************
+    *** DESCRIPTION : calls the setting and printing methods in order ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :      void                                            ***
+    ********************************************************************/
     public void Start()
     {
         SetHeaders();
@@ -44,6 +64,15 @@ public abstract class Generation<T>
         SavePdf();
     }
 
+    /********************************************************************
+    *** METHOD SavePdf                                                ***
+    *********************************************************************
+    *** DESCRIPTION : saves the PDF with _ replacing whitespace       ***
+    *** INPUT ARGS :                                                  ***
+    *** OUTPUT ARGS :                                                 ***
+    *** IN/OUT ARGS :                                                 ***
+    *** RETURN :      void                                            ***
+    ********************************************************************/
     protected void SavePdf()
     {
         string pdfFileName = $"{title.Replace(" ", "_")}.pdf";
