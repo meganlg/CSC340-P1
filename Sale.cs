@@ -5,7 +5,11 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
+*** DESCRIPTION : Sale is an abstract datatype that contains a    ***
+***				  a location, target sales, actual sales, and  	  ***
+***				  difference property to store information  	  ***
+***			      regarding a single sale. All attributes are 	  ***
+***				  public.										  ***
 ***															      ***
 ********************************************************************/
 using System;

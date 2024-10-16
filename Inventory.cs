@@ -5,7 +5,10 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
+*** DESCRIPTION : Inventory is an abstract datatype that contains ***
+***				  an ID, quantity, price, category, and weight	  ***
+***				  property to store information regarding a 	  ***
+***			      single item. All attributes are public.		  ***
 ***															      ***
 ********************************************************************/
 using System;

@@ -5,7 +5,10 @@
 *** DUE DATE : 10-16-24                                           ***
 *** INSTRUCTOR : GAMRADT                                          ***
 *********************************************************************
-*** DESCRIPTION :											      ***
+*** DESCRIPTION : Employee is an abstract datatype that contains  ***
+***				  a first name, last name, ID, pay, position, and ***
+***				  property to store information regarding a 	  ***
+***			      single employee. All attributes are public.	  ***
 ***															      ***
 ********************************************************************/
 using System;
