@@ -1,4 +1,4 @@
-Employee First Name,Emplyee Last Name,Employee ID,Hourly Pay,Position,Phone Number
+FirstName,LastName,ID,Pay,Position,PhoneNumber
 Bob,Johnson,E000,15.6,Ops Manager,555-012-3456
 John,Smith,E001,20.5,Manager,555-045-6789
 Emily,Johnson,E002,18.75,Developer,555-078-9123
